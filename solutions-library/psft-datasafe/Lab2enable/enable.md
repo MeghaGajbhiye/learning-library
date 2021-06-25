@@ -4,8 +4,6 @@
 
 This lab guides you through enabling Data Safe on OCI and creating a Private Endpoint to which we will connect our target database.  
 
-Note: Please be aware that the screenshots in this lab follow the enabling of Data Safe for an EBS instance. This is not required and simply provides the walkthrough of a typical "installment" of Data Safe on a database. 
-
 Estimated Lab Time: 10 minutes
 
 ### Objectives
@@ -25,41 +23,52 @@ In this lab, you will:
     - (Optional) The public IP address of the bastion host you will use to connect to the database 
     - The OCID of the target database
 
+## **STEP 1:** Gathering Needed Information
+In Lab 1, we created an HCM PSFT environment with a Middle Tier, DB System and Windows Client nodes. In Step 3, before deploying our environment, we created the infrastructure. Included in that is our DB System we will be connecting Data Safe to.
 
-## **STEP 1:** Enable Data Safe
+1. Sign into your OCI tenancy using your admin account. 
+2. Open up the menu on the far left and click **Oracle Database** --> **Bare Metal, VM, and Exadata**
+    ![](./images/dbmenu.png " ")
+3. On the left, use the dropdown to select the **Demo** compartment. Next, click **HCMDB**.
+    ![](./images/compartment.png " ")
+4. Click **Nodes** on the bottom left, then copy the Private IP address into a NotePad for later.
+    ![](./images/nodeprivateip.png " ")
+
+## **STEP 2:** Enable Data Safe
 
 This step is not necessary if Data Safe is already been used in you tenancy and region. If it is not, follow these steps:
 
-1. Using your tenancy admin user account, login to Oracle Cloud Infrastructure.
+1. Sign into your OCI tenancy using your admin account if you aren't already signed in.
+2. Open up the menu on the far left and click **Oracle Database** --> **Data Safe**
+    ![](./images/1-menu.png " ")
 
-2. Select the region in which you would like to enable Data Safe. 
+3. Click **Enable Data Safe**
+    ![](./images/2-button.png " ")
+    
 
-3. From the navigation menu, select **Data Safe**. 
+## **STEP 3:** Create a Private Endpoint for the Database
 
-4. Click **Enable Data Safe**. 
+1. After enabling Data Safe, the button should change to **Service Console**. On the left side, click on **Private Endpoints**. 
 
-
-## **STEP 2:** Create a Private Endpoint for the Database
-
-1. From the navigation menu on OCI, go to **Data Safe** and then click on **Private Endpoints**. 
-
-    ![](./images/1.png " ")
+    ![](./images/pemenu.png " ")
 
 2. Click **Create Private Endpoint**.
+    ![](./images/createpe.png " ")
 
-  a. **Name:** ``DataSafePrivateEndpoint``
+Now let's give it some values:
 
-  b. **Virtual Cloud Network**: the VCN in which your target database resides
+  * **Name** - psftPE
+  * **Compartment** - Demo
+  * **Virtual Cloud Network** - OCIHOLVCN
+  * **Subnet:** db
+    ![](./images/pevalues.png " ")
 
-    Note: Make sure you have the correct compartment selected for the VCN to display. 
+  Click **Create Private Endpoint**
 
-  c. **Subnet:** the subnet in which your target database resides
+  Once the endpoint has finished creating, the status should change to **Acceted**. 
+3. Copy the Private IP address in the same location you copied the DB Node's Private IP making sure to label each one. We will be using this later. 
 
-  d. Click **Create Private Endpoint**
-
-  e. Once the endpoint has finished creating, copy its private IP into a text file for later reference. 
-
-    ![](./images/2.png " ")
+    ![](./images/peprivateip.png " ")
 
 ## **STEP 3:** Configure the Security List rules
 
