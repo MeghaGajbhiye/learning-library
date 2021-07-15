@@ -63,14 +63,19 @@ Now let's give it some values:
   * **Subnet:** db
     ![](./images/pevalues.png " ")
 
-  Click **Create Private Endpoint**
+Click **Create Private Endpoint**
 
-  Once the endpoint has finished creating, the status should change to **Acceted**. 
+Once the endpoint has finished creating, the status should change to **Acceted**. 
 3. Copy the Private IP address in the same location you copied the DB Node's Private IP making sure to label each one. We will be using this later. 
 
     ![](./images/peprivateip.png " ")
 
-## **STEP 3:** Configure the Security List rules
+
+## **STEP 4:** Download Privileges Script
+
+While we're here, click the **Register Wizard** and theen **Download Privileges Script**
+
+<!-- ## **STEP 4:** Configure the Security List rules
 
 1. Open Security List rules to allow traffic between the endpoint and the database. Go to **Networking** > **Virtual Cloud Networks** and select the VCN in which your target database resides.
 
@@ -80,7 +85,7 @@ Now let's give it some values:
 
   c. Create an Egress Rule that allows TCP traffic from the database's private IP address to port 1521. 
 
-    ![](./images/2-1.png " ")
+    ![](./images/2-1.png " ") -->
 
 You may now move on to the next lab.
 
@@ -94,10 +99,8 @@ You may now move on to the next lab.
 
 ## Acknowledgements
 
-* **Author:** William Masdon, Cloud Engineering
-* **Contributors:** 
-    - Quintin Hill, Cloud Engineering
-* **Last Updated By/Date:** William Masdon, Cloud Engineering, Mar 2021
+* **Author:** Sara Lipowsky, Cloud Engineering
+* **Last Updated By/Date:** Sara Lipowsky, June 2021
 
 ## Need Help?
 Please submit feedback or ask for help using our [LiveLabs Support Forum](https://community.oracle.com/tech/developers/categories/livelabsdiscussions). Please click the **Log In** button and login using your Oracle Account. Click the **Ask A Question** button to the left to start a *New Discussion* or *Ask a Question*.  Please include your workshop name and lab name.  You can also include screenshots and attach files.  Engage directly with the author of the workshop.
